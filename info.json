@@ -1,13 +1,13 @@
 {
-    "author": "Josh.5",
+    "author": "Josh.5 - modified by Dpjl",
     "compatibility": [
         1,
         2
     ],
-    "description": "Ensure all video streams are encoded with the H265/HEVC codec using the hevc_vaapi encoder.",
+    "description": "Ensure all video streams are encoded with the H264 codec using the h264_vaapi encoder.",
     "icon": "https://raw.githubusercontent.com/Josh5/unmanic.plugin.encoder_video_hevc_vaapi/master/icon.png",
-    "id": "encoder_video_hevc_vaapi",
-    "name": "Video Encoder H265/HEVC - hevc_vaapi (INTEL/AMD)",
+    "id": "encoder_video_h264_vaapi",
+    "name": "Video Encoder H264 - h264_vaapi (INTEL/AMD)",
     "platform": [
         "all"
     ],
