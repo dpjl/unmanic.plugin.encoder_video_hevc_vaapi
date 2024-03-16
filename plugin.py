@@ -26,7 +26,7 @@ import os
 
 from unmanic.libs.unplugins.settings import PluginSettings
 
-from encoder_video_hevc_vaapi.lib.ffmpeg import StreamMapper, Probe, Parser
+from encoder_video_h264_vaapi.lib.ffmpeg import StreamMapper, Probe, Parser
 
 # Configure plugin logger
 logger = logging.getLogger("Unmanic.Plugin.encoder_video_hevc_vaapi")
@@ -185,17 +185,17 @@ class PluginStreamMapper(StreamMapper):
     def test_stream_needs_processing(self, stream_info: dict):
         if stream_info.get('codec_name').lower() in self.image_video_codecs:
             return False
-        elif stream_info.get('codec_name').lower() in ['h265', 'hevc']:
+        elif stream_info.get('codec_name').lower() in ['h264']:
             return False
         return True
 
     def custom_stream_mapping(self, stream_info: dict, stream_id: int):
         if self.settings.get_setting('advanced'):
-            stream_encoding = ['-c:v:{}'.format(stream_id), 'hevc_vaapi']
+            stream_encoding = ['-c:v:{}'.format(stream_id), 'h264_vaapi']
             stream_encoding += self.settings.get_setting('custom_options').split()
         else:
             stream_encoding = [
-                '-c:v:{}'.format(stream_id), 'hevc_vaapi',
+                '-c:v:{}'.format(stream_id), 'h264_vaapi',
             ]
 
         return {
